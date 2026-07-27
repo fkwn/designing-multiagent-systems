@@ -93,10 +93,13 @@ class BaseAgent(ComponentBase[BaseModel], ABC):
         self.middleware_chain = MiddlewareChain(middlewares)
         self.max_iterations = max_iterations
         self.output_format = output_format
+        # 工具执行结束后进行摘要总结
         self.summarize_tool_result = summarize_tool_result
         self.required_tools = required_tools or []
         self.example_tasks = example_tasks or []
+        # 配置压缩策略
         self.compaction = compaction
+        # 开始和结束前执行自定义指令
         self.start_hooks = start_hooks or []
         self.end_hooks = end_hooks or []
 
